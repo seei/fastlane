@@ -10,8 +10,6 @@ module Fastlane
         require 'base64'
 
         repo = params[:repo]
-        title = params[:title]
-        body = params[:body]
         head = params[:head] || Actions.git_branch
         base = params[:base] || 'master'
 
@@ -22,7 +20,7 @@ module Fastlane
         headers['Authorization'] = "Basic #{Base64.strict_encode64(params[:api_token])}" if params[:api_token]
 
         body = {
-          'title' => title,
+          'title' => title = params[:title],
           'head' => head,
           'base' => base
         }
