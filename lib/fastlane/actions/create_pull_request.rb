@@ -20,7 +20,7 @@ module Fastlane
         headers['Authorization'] = "Basic #{Base64.strict_encode64(params[:api_token])}" if params[:api_token]
 
         body = {
-          'title' => title = params[:title],
+          'title' => params[:title],
           'head' => head,
           'base' => base
         }
